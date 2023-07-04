@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     var messagesList = mutableListOf<Message>()
 
     private lateinit var adapter: MessagingAdapter
-    private val botList = listOf("Peter", "Francesca", "Luigi", "Igor")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,8 +33,10 @@ class MainActivity : AppCompatActivity() {
 
         clickEvents()
 
-        val random = (0..3).random()
-        customBotMessage("Hello! Today you're speaking with ${botList[random]}, how may I help?")
+        //val random = (0..3).random()
+
+        customBotMessage("Hola!, soy el asistente virtual de WariwilcaGO")
+        customBotMessage("Como te puedo ayudar?")
     }
 
     private fun clickEvents() {
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         //Scroll back to correct position when user clicks on text view
         et_message.setOnClickListener {
             GlobalScope.launch {
-                delay(100)
+                delay(1000)
 
                 withContext(Dispatchers.Main) {
                     rv_messages.scrollToPosition(adapter.itemCount - 1)
